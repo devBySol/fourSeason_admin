@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reservations",
+  "info": {
+    "singularName": "reservation",
+    "pluralName": "reservations",
+    "displayName": "Reservation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Date": {
+      "type": "date"
+    },
+    "activity": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::activity.activity",
+      "inversedBy": "reservations"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "reservations"
+    },
+    "UserName": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Note": {
+      "type": "blocks"
+    },
+    "deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
